@@ -1,4 +1,10 @@
 FROM node:10-alpine
 LABEL Author="Sreenadh TC <kesav.tc8@gmail.com>"
-RUN npm install -g selenium-side-runner
-CMD selenium-side-runner --base-url $BASE_URL ./dockup-blueprint-test.side
+RUN yarn global add selenium-side-runner chromedriver
+
+RUN mkdir -p /tests
+COPY ./dockup-blueprint-test.side ./tests
+
+WORKDIR /tests
+
+RUN selenium-side-runner ./dockup-blueprint-test.side
