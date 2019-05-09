@@ -10,6 +10,6 @@ ADD ./tests/* ./
 
 VOLUME [ "/tests" ]
 RUN npm install -g selenium-side-runner
-Run npm install -g --unsafe-perm=true chromedriver
+RUN npm install -g --unsafe-perm=true chromedriver
 
 RUN selenium-side-runner *.side
